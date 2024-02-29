@@ -1,0 +1,74 @@
+# 数据源配置
+# spring配置
+spring:
+    datasource:
+        druid:
+            stat-view-servlet:
+                enabled: true
+                loginUsername: ruoyi
+                loginPassword: 123456
+        dynamic:
+            druid:
+                initial-size: 5
+                min-idle: 5
+                maxActive: 20
+                maxWait: 60000
+                timeBetweenEvictionRunsMillis: 60000
+                minEvictableIdleTimeMillis: 300000
+                validationQuery: SELECT 1 FROM DUAL
+                testWhileIdle: true
+                testOnBorrow: false
+                testOnReturn: false
+                poolPreparedStatements: true
+                maxPoolPreparedStatementPerConnectionSize: 20
+                filters: stat,slf4j
+            datasource:
+                # 主库数据源
+                master:
+                    driver-class-name: com.mysql.cj.jdbc.Driver
+                    url: jdbc:mysql://172.16.11.112:3306/client-if-proxy?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+                    username: root
+                    password: root
+                # 测试数据源
+                oracle:
+                    driver-class-name: oracle.jdbc.driver.OracleDriver
+                    url: jdbc:oracle:thin:@localhost:1521:cmcs
+                    username: system
+                    password: Dd112255
+
+    # redis 配置
+    redis:
+        # 地址
+        host: 172.16.11.112
+        # 端口，默认为6379
+        port: 6379
+        # 数据库索引
+        database: 0
+        # 密码
+        password:
+        # 连接超时时间
+        timeout: 10s
+        lettuce:
+            pool:
+                # 连接池中的最小空闲连接
+                min-idle: 0
+                # 连接池中的最大空闲连接
+                max-idle: 8
+                # 连接池的最大数据库连接数
+                max-active: 8
+                # #连接池最大阻塞等待时间（使用负值表示没有限制）
+                max-wait: -1ms
+
+xmcs:
+    jmx:
+        config:
+            proxyUrl: 172.16.11.121
+            proxyPort: 20104
+            clientIfObjectName: xMCS1_5:type=ClientInterface
+
+cmcs:
+    jmx:
+        config:
+            proxyUrl: localhost
+            proxyPort: 20104
+            clientIfObjectName: xMCS1_5:type=ClientInterface

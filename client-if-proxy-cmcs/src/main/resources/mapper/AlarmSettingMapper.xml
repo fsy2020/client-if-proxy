@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nsynus.generator.mapper.AlarmSettingMapper">
+
+    <resultMap id="BaseResultMap" type="com.nsynus.generator.domain.AlarmSetting">
+            <id property="alarmId" column="ALARM_ID" jdbcType="DECIMAL"/>
+            <id property="controllerSpec" column="CONTROLLER_SPEC" jdbcType="VARCHAR"/>
+            <result property="alarmCode" column="ALARM_CODE" jdbcType="DECIMAL"/>
+            <result property="alarmText" column="ALARM_TEXT" jdbcType="VARCHAR"/>
+            <result property="hostSendFlag" column="HOST_SEND_FLAG" jdbcType="DECIMAL"/>
+            <result property="statisticsFlag" column="STATISTICS_FLAG" jdbcType="DECIMAL"/>
+            <result property="downFlag" column="DOWN_FLAG" jdbcType="DECIMAL"/>
+            <result property="severity" column="SEVERITY" jdbcType="DECIMAL"/>
+            <result property="alarmcd" column="ALARMCD" jdbcType="VARCHAR"/>
+            <result property="alarmGroup" column="ALARM_GROUP" jdbcType="VARCHAR"/>
+            <result property="messageJ" column="MESSAGE_J" jdbcType="VARCHAR"/>
+            <result property="messageE" column="MESSAGE_E" jdbcType="VARCHAR"/>
+            <result property="hostSentTime" column="HOST_SENT_TIME" jdbcType="TIMESTAMP"/>
+            <result property="hyperlink" column="HYPERLINK" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ALARM_ID,CONTROLLER_SPEC,ALARM_CODE,
+        ALARM_TEXT,HOST_SEND_FLAG,STATISTICS_FLAG,
+        DOWN_FLAG,SEVERITY,ALARMCD,
+        ALARM_GROUP,MESSAGE_J,MESSAGE_E,
+        HOST_SENT_TIME,HYPERLINK
+    </sql>
+</mapper>

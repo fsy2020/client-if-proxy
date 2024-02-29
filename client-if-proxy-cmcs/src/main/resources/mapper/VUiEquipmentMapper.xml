@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nsynus.generator.mapper.VUiEquipmentMapper">
+
+    <resultMap id="BaseResultMap" type="com.nsynus.generator.domain.VUiEquipment">
+            <result property="equipmentId" column="EQUIPMENT_ID" jdbcType="VARCHAR"/>
+            <result property="displayName" column="DISPLAY_NAME" jdbcType="VARCHAR"/>
+            <result property="equipmentType" column="EQUIPMENT_TYPE" jdbcType="DECIMAL"/>
+            <result property="subEquipmentType" column="SUB_EQUIPMENT_TYPE" jdbcType="DECIMAL"/>
+            <result property="pmMode" column="PM_MODE" jdbcType="DECIMAL"/>
+            <result property="controlStatus" column="CONTROL_STATUS" jdbcType="DECIMAL"/>
+            <result property="amhsStatus" column="AMHS_STATUS" jdbcType="DECIMAL"/>
+            <result property="targetAmhsStatus" column="TARGET_AMHS_STATUS" jdbcType="DECIMAL"/>
+            <result property="commStatus" column="COMM_STATUS" jdbcType="DECIMAL"/>
+            <result property="syncStatus" column="SYNC_STATUS" jdbcType="DECIMAL"/>
+            <result property="totalSize" column="TOTAL_SIZE" jdbcType="DECIMAL"/>
+            <result property="reservedSize" column="RESERVED_SIZE" jdbcType="DECIMAL"/>
+            <result property="occupiedSize" column="OCCUPIED_SIZE" jdbcType="DECIMAL"/>
+            <result property="emptySize" column="EMPTY_SIZE" jdbcType="DECIMAL"/>
+            <result property="utilization" column="UTILIZATION" jdbcType="DECIMAL"/>
+            <result property="zoneFullCount" column="ZONE_FULL_COUNT" jdbcType="DECIMAL"/>
+            <result property="partitionFullCount" column="PARTITION_FULL_COUNT" jdbcType="DECIMAL"/>
+            <result property="craneOutOfServiceCount" column="CRANE_OUT_OF_SERVICE_COUNT" jdbcType="DECIMAL"/>
+            <result property="portOutOfServiceCount" column="PORT_OUT_OF_SERVICE_COUNT" jdbcType="DECIMAL"/>
+            <result property="stationOutOfServiceCount" column="STATION_OUT_OF_SERVICE_COUNT" jdbcType="DECIMAL"/>
+            <result property="alarmUnitCount" column="ALARM_UNIT_COUNT" jdbcType="DECIMAL"/>
+            <result property="microCommandCount" column="MICRO_COMMAND_COUNT" jdbcType="DECIMAL"/>
+            <result property="purgeType" column="PURGE_TYPE" jdbcType="DECIMAL"/>
+            <result property="sorterType" column="SORTER_TYPE" jdbcType="DECIMAL"/>
+            <result property="cleanerBuffer" column="CLEANER_BUFFER" jdbcType="DECIMAL"/>
+            <result property="eqBuffer" column="EQ_BUFFER" jdbcType="DECIMAL"/>
+            <result property="emptyCarrierSupplyArea" column="EMPTY_CARRIER_SUPPLY_AREA" jdbcType="VARCHAR"/>
+            <result property="ecsAreaListAsDest" column="ECS_AREA_LIST_AS_DEST" jdbcType="VARCHAR"/>
+            <result property="transitUseEnabled" column="TRANSIT_USE_ENABLED" jdbcType="DECIMAL"/>
+            <result property="pmReason" column="PM_REASON" jdbcType="VARCHAR"/>
+            <result property="stbcEquipmentId" column="STBC_EQUIPMENT_ID" jdbcType="VARCHAR"/>
+            <result property="pmModeOption" column="PM_MODE_OPTION" jdbcType="DECIMAL"/>
+    </resultMap>
+
+
+
+    <sql id="Base_Column_List">
+        EQUIPMENT_ID,DISPLAY_NAME,EQUIPMENT_TYPE,
+        SUB_EQUIPMENT_TYPE,PM_MODE,CONTROL_STATUS,
+        AMHS_STATUS,TARGET_AMHS_STATUS,COMM_STATUS,
+        SYNC_STATUS,TOTAL_SIZE,RESERVED_SIZE,
+        OCCUPIED_SIZE,EMPTY_SIZE,UTILIZATION,
+        ZONE_FULL_COUNT,PARTITION_FULL_COUNT,CRANE_OUT_OF_SERVICE_COUNT,
+        PORT_OUT_OF_SERVICE_COUNT,STATION_OUT_OF_SERVICE_COUNT,ALARM_UNIT_COUNT,
+        MICRO_COMMAND_COUNT,PURGE_TYPE,SORTER_TYPE,
+        CLEANER_BUFFER,EQ_BUFFER,EMPTY_CARRIER_SUPPLY_AREA,
+        ECS_AREA_LIST_AS_DEST,TRANSIT_USE_ENABLED,PM_REASON,
+        STBC_EQUIPMENT_ID,PM_MODE_OPTION
+    </sql>
+
+    <select id="selectRemoteEquipmentMap" resultType="com.nsynus.generator.domain.VUiEquipmentMap" >
+        SELECT PORT.EQUIPMENT_ID  as eId,
+               PORT.REMOTE_EQUIPMENT_ID as reId
+        FROM V_UI_EQUIPMENT
+                 LEFT JOIN
+             PORT
+             ON
+                 PORT.EQUIPMENT_ID = V_UI_EQUIPMENT.EQUIPMENT_ID
+    </select>
+
+
+</mapper>

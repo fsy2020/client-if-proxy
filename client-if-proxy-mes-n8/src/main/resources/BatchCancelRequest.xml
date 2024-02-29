@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<msg>
+	<rvHeader>
+		<source>
+			<application>MES</application>
+			<msgBus>TibRv</msgBus>
+			<domain>SITE1</domain>
+			<address>SITE1.FABA.MES</address>
+		</source>
+		<destination>
+			<application>MCS</application>
+			<msgBus>TibRv</msgBus>
+			<domain>SITE1</domain>
+			<address>SITE1.FABA.MCS</address>
+		</destination>
+		<replyApplication>
+			<addressNo>1</addressNo>
+			<address applicationName="MES" seq="1">SITE1.FABA.MES</address>
+		</replyApplication>
+	</rvHeader>
+	<msgHeader>
+		<srvAddr></srvAddr>
+		<reqAddr></reqAddr>
+		<msgOwner></msgOwner>
+		<srvMethod>BatchCancelRequest</srvMethod>
+		<srvId>TRANSSRVdefault</srvId>
+		<timeStamp>20180531 112233</timeStamp>
+		<timeOut>0</timeOut>
+		<txId>20180531112233000123</txId>
+		<locale>EN</locale>
+		<retCode></retCode>
+		<retMsg></retMsg>
+	</msgHeader>
+	<msgBody>
+		<UserId>USER001</UserId>
+		<BatchId>BATCH_005</BatchId>
+		<ReturnFlag></ReturnFlag>
+	</msgBody>
+</msg>
